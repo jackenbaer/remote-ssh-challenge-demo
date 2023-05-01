@@ -1,18 +1,6 @@
-import socket 
-import paramiko
 import argparse 
-
-
-
-import base64
-import getpass
-import os
 import socket
-import sys
-import traceback
 import interactive
-import socket
-import time
 import paramiko
 
 def _auth(self, username, password, pkey, key_filenames, allow_agent, look_for_keys, gss_auth, gss_kex, gss_deleg_creds, gss_host, passphrase,):
@@ -71,7 +59,7 @@ def _get_session_blob(self, key, service, username, algorithm):
 def _get_key_type_and_bits(self, key):
     return "ssh-ed25519", bytes.fromhex(args.pub)
 
-
+#overwriting paramiko functions
 paramiko.SSHClient._auth = _auth
 paramiko.AuthHandler._get_key_type_and_bits = _get_key_type_and_bits
 paramiko.AuthHandler._get_session_blob = _get_session_blob
