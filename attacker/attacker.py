@@ -72,7 +72,6 @@ def _get_key_type_and_bits(self, key):
     return "ssh-ed25519", bytes.fromhex("0000000b7373682d656432353531390000002069a6911c5709b89482c1bf17b2624c1950ff0b96ef83dcb05941eaa774b241d7")
 
 
-
 paramiko.SSHClient._auth = _auth
 paramiko.AuthHandler._get_key_type_and_bits = _get_key_type_and_bits
 paramiko.AuthHandler._get_session_blob = _get_session_blob
