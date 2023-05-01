@@ -69,7 +69,7 @@ def _get_session_blob(self, key, service, username, algorithm):
 
 
 def _get_key_type_and_bits(self, key):
-    return "ssh-ed25519", bytes.fromhex("0000000b7373682d656432353531390000002069a6911c5709b89482c1bf17b2624c1950ff0b96ef83dcb05941eaa774b241d7")
+    return "ssh-ed25519", bytes.fromhex(args.pub)
 
 
 paramiko.SSHClient._auth = _auth
@@ -86,6 +86,7 @@ if __name__== "__main__":
 	parser.add_argument("-t", "--target", required=True, help="Hostname of ssh target")
 	parser.add_argument("-u", "--user", required=True, help="User of ssh target")
 	parser.add_argument("-p", "--port", required=True, help="Port of ssh target")
+	parser.add_argument("--pub", required=True, help="Public key used for authentication as hex")
 	args = parser.parse_args()
 
 
